@@ -87,7 +87,8 @@
            (subst! v t)
            (void))
        (void))
-      ([cons (typ:freevar _ _) t2] (unify t2 t1)))))
+      ([cons (typ:freevar _ _) t2] (unify t2 t1))
+      (_ (raise (format "cannot unify type ~a and ~a" (pretty-print-typ t1) (pretty-print-typ t2)))))))
 
 (: type/infer (->* (expr) (Context) typ))
 (define type/infer
