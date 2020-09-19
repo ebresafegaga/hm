@@ -23,7 +23,7 @@
                  (format "(~a)" j)
                  (format "(~a ~a)" name j)))))
       ([typ:arrow from to]
-       (format "~a -> ~a" (pretty-print-typ from)
+       (format "(~a -> ~a)" (pretty-print-typ from)
                (pretty-print-typ to))))))
 
 
