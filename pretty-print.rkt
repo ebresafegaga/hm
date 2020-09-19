@@ -10,15 +10,14 @@
   (λ (t)
     (match t
       ([typ:freevar idx subst]
-       (if subst
+       (if subst 
            (pretty-print-typ subst)
            (format "?~a" idx)))
       ([typ:constructor name typ-args]
        (if (empty? typ-args)
            (format "~a" name)
            (let ([j (string-join (map
-                                  (λ ([typ-arg: typ])
-                                    (pretty-print-typ typ-arg))
+                                  (λ (typ-arg) (pretty-print-typ typ-arg))
                                   typ-args) " ")])
              (if (string=? name "pair")
                  (format "(~a)" j)
